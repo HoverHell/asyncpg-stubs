@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "asyncpg-stubs-h1"
-version = "0.23.1"
+version = "0.23.2"
 description = "asyncpg stubs (pypi-upload copy)"
 authors = ["Bryan Forbes <bryan@reigndropsfall.net>"]
 license = "BSD-3-Clause"

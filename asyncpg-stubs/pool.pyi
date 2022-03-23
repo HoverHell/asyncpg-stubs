@@ -309,6 +309,70 @@ class Pool(typing.Generic[_Record]):
     async def fetchrow(
         self, query: str, *args: typing.Any, timeout: typing.Optional[float] = ...
     ) -> typing.Optional[_cprotocol.Record]: ...
+    async def copy_from_table(
+        self,
+        table_name: str,
+        *,
+        output: connection._OutputType,
+        columns: typing.Optional[typing.Iterable[str]] = ...,
+        schema_name: typing.Optional[str] = ...,
+        timeout: typing.Optional[float] = ...,
+        format: typing.Optional[connection._CopyFormat] = ...,
+        oids: typing.Optional[int] = ...,
+        delimiter: typing.Optional[str] = ...,
+        null: typing.Optional[str] = ...,
+        header: typing.Optional[bool] = ...,
+        quote: typing.Optional[str] = ...,
+        escape: typing.Optional[str] = ...,
+        force_quote: typing.Optional[bool] = ...,
+        encoding: typing.Optional[str] = ...,
+    ) -> str: ...
+    async def copy_from_query(
+        self,
+        query: str,
+        *args: typing.Any,
+        output: connection._OutputType,
+        timeout: typing.Optional[float] = ...,
+        format: typing.Optional[connection._CopyFormat] = ...,
+        oids: typing.Optional[int] = ...,
+        delimiter: typing.Optional[str] = ...,
+        null: typing.Optional[str] = ...,
+        header: typing.Optional[bool] = ...,
+        quote: typing.Optional[str] = ...,
+        escape: typing.Optional[str] = ...,
+        force_quote: typing.Optional[bool] = ...,
+        encoding: typing.Optional[str] = ...,
+    ) -> str: ...
+    async def copy_to_table(
+        self,
+        table_name: str,
+        *,
+        source: connection._SourceType,
+        columns: typing.Optional[typing.Iterable[str]] = ...,
+        schema_name: typing.Optional[str] = ...,
+        timeout: typing.Optional[float] = ...,
+        format: typing.Optional[connection._CopyFormat] = ...,
+        oids: typing.Optional[int] = ...,
+        freeze: typing.Optional[bool] = ...,
+        delimiter: typing.Optional[str] = ...,
+        null: typing.Optional[str] = ...,
+        header: typing.Optional[bool] = ...,
+        quote: typing.Optional[str] = ...,
+        escape: typing.Optional[str] = ...,
+        force_quote: typing.Optional[bool] = ...,
+        force_not_null: typing.Optional[bool] = ...,
+        force_null: typing.Optional[bool] = ...,
+        encoding: typing.Optional[str] = ...,
+    ) -> str: ...
+    async def copy_records_to_table(
+        self,
+        table_name: str,
+        *,
+        records: typing.Iterable[typing.Sequence[typing.Any]],
+        columns: typing.Optional[typing.Iterable[str]] = ...,
+        schema_name: typing.Optional[str] = ...,
+        timeout: typing.Optional[float] = ...,
+    ) -> str: ...
     def acquire(
         self, *, timeout: typing.Optional[float] = ...
     ) -> PoolAcquireContext[_Record]: ...
